@@ -52,17 +52,22 @@ namespace DataAccess.Concrete.EntityFramewrok
                 var colors = context.Colors.ToList();
                 var brands = context.Brands.ToList();
                 var cars = context.Cars.ToList();
-                var rentals = context.Rentals.Where(r => r.RentDate <= date && r.ReturnDate == null).ToList();
+                
+                var rentals = context.Rentals.Where(r => r.RentDate <= date && (r.ReturnDate == null || r.ReturnDate>date)).ToList();
 
                 foreach (var i in cars)
                 {
+
                     var model = i.CreateMapped<Car, CarDto>();
                     var color = colors.FirstOrDefault(c => c.ColorId == i.ColorId);
                     var brand = brands.FirstOrDefault(b => b.BrandId == i.BrandId);
+                    var rental = rentals.FirstOrDefault(r => r.CarId == i.Id);
 
-                    model.IsRented = rentals.Any(r => r.CarId == i.Id);
+                    model.IsRented = rental != null;
                     model.BrandText = brand == null ? "" : brand.BrandName;
                     model.ColorText = color == null ? "" : color.ColorName;
+                    model.ReturnDate = rental != null && rental.ReturnDate != null ? rental.ReturnDate.Value.ToShortDateString() : "Uncertain";
+                    
 
                     result.Add(model);
                 }

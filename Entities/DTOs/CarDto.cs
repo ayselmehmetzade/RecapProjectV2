@@ -11,5 +11,7 @@ namespace Entities.DTOs
         public string BrandText { get; set; }
         public string ColorText { get; set; }
         public bool IsRented { get; set; }
+        public string ReturnDate { get; set; }
+
     }
 }
