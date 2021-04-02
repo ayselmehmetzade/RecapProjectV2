@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
         }
 
 
-        [Route("getbycarid")]
+        [Route("getbycarid/{carid}")]
         [HttpGet]
         public IActionResult GetCarListByCarId(int carId)
         {
