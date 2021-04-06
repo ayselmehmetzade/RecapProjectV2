@@ -9,6 +9,9 @@ namespace Business.Constants
     public class Messages
     {
         public static string Added = "Ekleme işlemi başarılı";
+        public static string Deleted = "Silme işlemi başarılı";
+        public static string Updated = "Güncelleme işlemi başarılı";
+        public static string NotFound = "Bulunamadı";
         public static string CarInvalid = "Ekleme işlemi başarısız. Lütfen bilgileri kontrol ediniz";
         public static string CarInvalid2 = "Güncelleme işlemi başarısız. Lütfen bilgileri kontrol ediniz";
         public static string CarDeleted = "Silme işlemi başarılı";
@@ -24,9 +27,6 @@ namespace Business.Constants
         public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
         public static string AccessTokenCreated = "Access token başarıyla oluşturuldu";
         public static string AuthorizationDenied = "Yetkiniz yok";
-
-
-
         public static string CarImageCountError = "İlgili Araç İçin Maksimum Resim Sayısına Ulaşıldı.";
         public static string ImageList = "Resimler Listelendi";
         public static string ListedByCarId = "Aracın resimleri getirildi.";
@@ -34,7 +34,6 @@ namespace Business.Constants
         public static string ImageAdded = "Araç resmi eklendi.";
         public static string ImageUpdated = "Araç resmi güncellendi.";
         public static string ImageDeleted = "Araç resmi silindi..";
-
         public static string CarDetailList = "Listelendi";
     }
 
