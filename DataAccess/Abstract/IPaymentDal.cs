@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface IFindeksDal : IEntityRepository<Findeks>
+    public interface IPaymentDal : IEntityRepository<Payment>
     {
     }
 }

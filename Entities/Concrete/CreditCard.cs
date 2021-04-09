@@ -11,9 +11,8 @@ namespace Entities.Concrete
         public int CustomerId { get; set; }
         public string FullName { get; set; }
         public string CardNumber { get; set; }
-        public byte ExpiryMonth { get; set; }
-        public byte ExpiryYear { get; set; }
+
+        public string ExpiryDate { get; set; }
         public string Cvc { get; set; }
-        public string Type { get; set; }
     }
 }
