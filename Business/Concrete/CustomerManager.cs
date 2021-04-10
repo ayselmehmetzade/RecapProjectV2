@@ -5,6 +5,7 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -39,7 +40,10 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Customer>( _customerDal.Get(c=>c.CustomerId==id));
         }
-
+        public IDataResult<Customer> GetByUserId(int id)
+        {
+            return new SuccessDataResult<Customer>(_customerDal.GetAll().Where(c=> c.UserId == id).FirstOrDefault());
+        }
         public IResult Update(Customer customer)
         {
             _customerDal.Update(customer);
