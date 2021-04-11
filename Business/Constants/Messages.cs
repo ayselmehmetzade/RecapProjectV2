@@ -36,6 +36,8 @@ namespace Business.Constants
         public static string ImageDeleted = "Araç resmi silindi..";
         public static string CarDetailList = "Listelendi";
         public static string PasswordChanged = "Şifre Değiştirildi.";
+        public static string Findeks = "Yeterli findeks puana sahip değilsiniz";
+        public static string SuccesFindeks = "Yeterli findeks puan";
     }
 
 }

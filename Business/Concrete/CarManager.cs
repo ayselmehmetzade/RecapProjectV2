@@ -93,7 +93,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
-        [PerformanceAspect(5)]
+        //[PerformanceAspect(5)]
         public IDataResult<Car> GetById(int id)
         {
             return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id));

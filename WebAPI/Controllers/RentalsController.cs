@@ -43,10 +43,23 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("findekscontrol")]
+        public IActionResult FindeksControl(int carId, int customerId)
+        {
+            var result = _rentalService.FindeksControl(carId, customerId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
+
         [HttpGet("getrentaldetails")]
         public IActionResult GetRentalDetails()
         {
-            Thread.Sleep(1000);
             var result = _rentalService.GetRentalDetails();
             if (result.Success)
             {

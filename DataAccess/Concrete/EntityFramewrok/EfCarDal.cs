@@ -32,8 +32,8 @@ namespace DataAccess.Concrete.EntityFramewrok
                                  DailyPrice = c.DailyPrice,
                                  ColorId = c.ColorId,
                                  BrandId = b.BrandId,
-                                 ModelYear = c.ModelYear
-
+                                 ModelYear = c.ModelYear,
+                                 MinFindeks=c.MinFindeks
 
                              };
                 return filter == null ? result.ToList() : result.Where(filter).ToList();
@@ -53,7 +53,7 @@ namespace DataAccess.Concrete.EntityFramewrok
                 var brands = context.Brands.ToList();
                 var cars = context.Cars.ToList();
                 
-                var rentals = context.Rentals.Where(r => r.RentDate <= date && (r.ReturnDate == null || r.ReturnDate>date)).ToList();
+                var rentals = context.Rentals.ToList();
 
                 foreach (var i in cars)
                 {
@@ -63,7 +63,7 @@ namespace DataAccess.Concrete.EntityFramewrok
                     var brand = brands.FirstOrDefault(b => b.BrandId == i.BrandId);
                     var rental = rentals.FirstOrDefault(r => r.CarId == i.Id);
 
-                    model.IsRented = rental != null;
+                    model.IsRented = rental != null;           
                     model.BrandText = brand == null ? "" : brand.BrandName;
                     model.ColorText = color == null ? "" : color.ColorName;
                     model.ReturnDate = rental != null && rental.ReturnDate != null ? rental.ReturnDate.Value.ToShortDateString() : "Uncertain";
