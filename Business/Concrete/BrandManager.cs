@@ -19,13 +19,14 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
-        [SecuredOperation("brand.add")]
+        [SecuredOperation("brand.operation")]
         public IResult Add(Brand brand)
         {
             _brandDal.Add(brand);
             return new SuccessResult(Messages.Added); 
         }
 
+        [SecuredOperation("brand.operation")]
         public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);
@@ -42,6 +43,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Brand>( _brandDal.Get(b=> b.BrandId==id));
         }
 
+        [SecuredOperation("brand.operation")]
         public IResult Update(Brand brand)
         {
             _brandDal.Update(brand);
