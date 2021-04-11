@@ -35,6 +35,7 @@ namespace Business.Constants
         public static string ImageUpdated = "Araç resmi güncellendi.";
         public static string ImageDeleted = "Araç resmi silindi..";
         public static string CarDetailList = "Listelendi";
+        public static string PasswordChanged = "Şifre Değiştirildi.";
     }
 
 }
