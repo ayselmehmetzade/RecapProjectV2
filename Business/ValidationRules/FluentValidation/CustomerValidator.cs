@@ -11,6 +11,7 @@ namespace Business.ValidationRules.FluentValidation
         public CustomerValidator()
         {
             RuleFor(c=>c.CompanyName).NotEmpty();
+            RuleFor(c => c.Findeks).InclusiveBetween(0, 1900);
         }
     }
 }
