@@ -12,6 +12,7 @@ namespace DataAccess.Concrete.EntityFramewrok
 {
     public class EfUserDal : EfEntityRepositoryBase<User, RecapContext>, IUserDal
     {
+
         public List<OperationClaim> GetClaims(User user)
         {
             using (var context = new RecapContext())
